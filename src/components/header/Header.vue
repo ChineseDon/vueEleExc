@@ -15,9 +15,18 @@
             <span class="text" v-text="seller.supports[0].description"></span>
           </div>
         </div>
+        <div class="support-count" v-if="seller.supports">
+          <span class="count" v-text="seller.supports.length + '个'"></span>
+          <i class="icon-keyboard_arrow_right"></i>
+        </div>
       </div>
       <div class="bulletin-wrapper">
-
+        <span class="bulletin-title">
+        </span><span class="bulletin-text" v-text="seller.bulletin"></span>
+        <i class="icon-keyboard_arrow_right"></i>
+      </div>
+      <div class="background">
+        <img :src="seller.avatar">
       </div>
   </div>
 </template>
@@ -44,10 +53,13 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="stylus" rel="stylesheet/stylus">
 @import '../../common/stylus/mixin'
+@import url('../../common/stylus/iconsell.css');
 .header
+  position relative
   color #ffffff
-  background-color #000000
+  background rgba(7,17,27,.5)
   .content-wrapper
+    position relative
     padding 24px 12px 18px 24px
     font-size 0
     .avatar
@@ -101,4 +113,60 @@ export default {
         .text
           line-height 12px
           font-size 12px
+    .support-count
+      position absolute
+      right 12px
+      bottom 14px
+      height 24px
+      line-height 24px
+      padding 0 8px
+      border-radius 14px
+      background-color rgba(0,0,0,.2)
+      text-align center
+      .count
+        font-size 10px
+        vertical-align top
+      .icon-keyboard_arrow_right
+        line-height 24px
+        margin-left 2px
+        font-size 10px
+  .bulletin-wrapper
+    position relative
+    height 28px
+    line-height 28px
+    padding 0 22px 0 12px
+    background-color rgba(7,17,27,.2)
+    white-space nowrap
+    overflow hidden
+    text-overflow ellipsis
+    .bulletin-title
+      display inline-block
+      width 22px
+      height 12px
+      vertical-align top
+      margin-top 8px
+      bg-img('image/bulletin')
+      background-size 22px 12px
+      background-repeat no-repeat
+    .bulletin-text
+      margin 0 4px
+      font-size 10px
+      font-weight 200
+      vertical-align top
+    .icon-keyboard_arrow_right
+        position absolute
+        right 12px
+        top 8px
+        font-size 10px
+  .background
+    position absolute
+    top 0
+    left 0
+    width 100%
+    height 100%
+    z-index -1
+    filter blur(10px)
+    img
+      width 100%
+      height 100%
 </style>
