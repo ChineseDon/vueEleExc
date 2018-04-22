@@ -36,12 +36,14 @@
       </li>
     </ul>
   </div>
+  <shopcar :delevery-price="seller.deliveryPrice" :min-price="seller.minPrice"></shopcar>
 </div>
 </template>
 
 <script type="text/ecmascript-6">
 import axios from 'axios'
 import BScroll from 'better-scroll'
+import shopcar from 'components/shopcar/ShopCar'
 export default {
   name: 'Goods',
   props: {
@@ -57,7 +59,9 @@ export default {
     }
   },
   components: {
-    axios
+    axios,
+    shopcar,
+    BScroll
   },
   computed: {
     currentIndex () {
