@@ -40,7 +40,6 @@ export default {
       responseType: 'stream'
     }).then((response) => {
       this.seller = response.data.seller
-      console.log(response.data)
     })
   },
   components: {
