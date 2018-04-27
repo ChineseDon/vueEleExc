@@ -30,6 +30,9 @@
                 <span class="now" v-text="'￥' + food.price"></span><!--
              --><span class="old" v-show="food.oldPrice" v-text="'￥' + food.oldPrice"></span>
               </div>
+              <div class="cartcontrol-wrapper">
+                <cartControl :food="food"></cartControl>
+              </div>
             </div>
           </li>
         </ul>
@@ -44,6 +47,7 @@
 import axios from 'axios'
 import BScroll from 'better-scroll'
 import shopcar from 'components/shopcar/ShopCar'
+import cartControl from 'components/cartControl/CarControl'
 export default {
   name: 'Goods',
   props: {
@@ -61,7 +65,8 @@ export default {
   components: {
     axios,
     shopcar,
-    BScroll
+    BScroll,
+    cartControl
   },
   computed: {
     currentIndex () {
@@ -231,4 +236,8 @@ export default {
             text-decoration line-through
             font-size 10px
             color rgb(147,153,159)
+        .cartcontrol-wrapper
+          position absolute
+          right 0
+          bottom 12px
 </style>
